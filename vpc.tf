@@ -21,7 +21,7 @@ resource "aws_internet_gateway" "gw" {
     Name = "main"
   }
 }
-resource "aws_default_route_table" "main" {
+resource "aws_default_route_table" "Public" {
   vpc_id = aws_vpc.main.id
   route {
     cidr_block = "10.0.1.0/24"
