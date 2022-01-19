@@ -1,5 +1,5 @@
 resource "aws_vpc" "main" {
-  cidr_block           = "${ var.vpc-cidr }"
+  cidr_block           = "${var.vpc-cidr}"
   instance_tenancy     = "default"
   enable_dns_hostnames = true
   tags = {
@@ -17,7 +17,7 @@ resource "aws_internet_gateway" "gw" {
 
 resource "aws_subnet" "public-subnet-1" {
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = "${ var.public-subnet1-cidr }"
+  cidr_block              = "${var.public-subnet1-cidr}"
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
   tags = {
@@ -27,7 +27,7 @@ resource "aws_subnet" "public-subnet-1" {
 
 resource "aws_subnet" "public-subnet-2" {
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = "${ var.public-subnet2-cidr }"
+  cidr_block              = "${var.public-subnet2-cidr}"
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
   tags = {
