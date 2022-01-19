@@ -25,15 +25,15 @@ resource "aws_subnet" "public-subnet-1" {
   }
 }
 
-resource "aws_subnet" "public-subnet-2" {
-  vpc_id                  = aws_vpc.main.id
-  cidr_block              = "${var.public-subnet2-cidr}"
-  availability_zone       = "us-east-1b"
-  map_public_ip_on_launch = true
-  tags = {
-    Name = "Public-subnet-2"
-  }
-}
+#resource "aws_subnet" "public-subnet-2" {
+#  vpc_id                  = aws_vpc.main.id
+#  cidr_block              = "${var.public-subnet2-cidr}"
+#  availability_zone       = "us-east-1b"
+#  map_public_ip_on_launch = true
+#  tags = {
+#    Name = "Public-subnet-2"
+#  }
+#}
 
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
