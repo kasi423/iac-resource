@@ -35,9 +35,8 @@ resource "aws_subnet" "public-subnet-2" {
   }
 }
 
-resource "aws_route_table" "public" {
+resource "aws_route_table" "public_route_table" {
   vpc_id = aws_vpc.main.id
-  #default_route_table_id = aws_vpc.public.default_route_table_id
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.gw.id
@@ -45,4 +44,17 @@ resource "aws_route_table" "public" {
   tags = {
     Name = "Pub_RT"
   }
+}
+
+resource "aws_route_table_association" "public_route_table_subnet1_association" {
+   subnet_id      = aws_subnet.public-subnet-1.id
+   route_table_id = aws_route_table.public_route_table.id
+
+}
+
+
+resource "aws_route_table_association" "public_route_table_subnet2_association" {
+   subnet_id      = aws_subnet.public-subnet-2.id
+   route_table_id = aws_route_table.public_route_table.id
+
 }
