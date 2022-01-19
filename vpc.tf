@@ -15,18 +15,11 @@ resource "aws_default_subnet" "default_az1" {
   }
 }
 resource "aws_default_route_table" "main" {
-  default_route_table_id = aws_vpc.main.default_route_table_id
-
+  vpc_id = "vpc-04d19cda525279114"
   route {
     cidr_block = "10.0.1.0/24"
     gateway_id = aws_internet_gateway.main.id
   }
-
-  route {
-    ipv6_cidr_block        = "::/0"
-    egress_only_gateway_id = aws_egress_only_internet_gateway.main.id
-  }
-
   tags = {
     Name = "Pub_RT"
   }
