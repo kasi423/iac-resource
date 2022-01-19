@@ -4,7 +4,7 @@ variable "vpc-cidr" {
   type             = string
 }
 
-variable "c" {
+variable "public-subnet1-cidr" {
   cidr_block       = 10.0.1.0/24
   description      = "public-subnet1-cidr"
   type             = string
