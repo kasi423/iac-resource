@@ -14,7 +14,7 @@ resource "aws_default_subnet" "default_az1" {
     Name = "Default subnet for us-east-1a"
   }
 }
-resource "aws_default_route_table" "example" {
+resource "aws_default_route_table" "aws_vpc" {
   default_route_table_id = aws_vpc.example.default_route_table_id
 
   route {
