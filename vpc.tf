@@ -14,8 +14,15 @@ resource "aws_default_subnet" "default_az1" {
     Name = "Default subnet for us-east-1a"
   }
 }
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "main"
+  }
+}
 resource "aws_default_route_table" "main" {
-  vpc_id = "vpc-04d19cda525279114"
+  vpc_id = aws_vpc.main.id
   route {
     cidr_block = "10.0.1.0/24"
     gateway_id = aws_internet_gateway.aws_vpc.id
