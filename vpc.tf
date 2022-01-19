@@ -21,21 +21,14 @@ resource "aws_internet_gateway" "gw" {
     Name = "main"
   }
 }
-resource "aws_default_route_table" "rt" {
+resource "aws_default_route_table" "public" {
   vpc_id = aws_vpc.main.id
-
-  tags = {
-    Name = "main"
+  default_route_table_id = "rtb-0e01d5111fcc85d3c"
+  route {
+    cidr_block = "10.0.1.0/24"
+    gateway_id = aws_internet_gateway.gw.id
+  }
+tags = {
+    Name = "Pub_RT"
   }
 }
-#resource "aws_default_route_table" "public" {
- # vpc_id = aws_vpc.main.id
-#  default_route_table_id = aws_vpc.rt.default_route_table_id
-#  route {
-#    cidr_block = "10.0.1.0/24"
-#    gateway_id = aws_internet_gateway.gw.id
-#  }
-#tags = {
-#    Name = "Pub_RT"
- # }
-#}
