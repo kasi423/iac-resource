@@ -3,6 +3,10 @@ resource "aws_s3_bucket" "b" {
   acl    = "private"
   versioning {
     enabled = true
+  logging {
+    target_bucket = aws_s3_bucket.log_bucket.id
+    target_prefix = "log/"
+  }
   }
   tags = {
     Name        = "My bucket"
