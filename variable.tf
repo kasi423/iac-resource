@@ -17,6 +17,6 @@ variable "public-subnet2-cidr" {
 }
 
 variable "aws_creds" {
-  access  = "AKIATMFLBAZEX6X66RXQ"
-  secret  = "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"
+  access_key  = "AKIATMFLBAZEX6X66RXQ"
+  secret_key  = "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"
 }
