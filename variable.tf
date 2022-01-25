@@ -15,3 +15,8 @@ variable "public-subnet2-cidr" {
   description      = "public-subnet2-cidr"
   type             = string
 }
+
+variable "aws_creds" {
+  access  = "AKIATMFLBAZEX6X66RXQ"
+  secret  = "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"
+}
