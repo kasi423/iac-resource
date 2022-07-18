@@ -27,5 +27,6 @@ pipeline{
           stage('Terraform Destory')
             steps{
                sh 'terraform plan -destroy'
-         } 
+         }
+        }
     }
