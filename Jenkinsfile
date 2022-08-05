@@ -24,10 +24,5 @@ pipeline{
                sh 'terraform apply --auto-approve'
             }
         }
-          /*stage('Terraform Destory')
-            steps{
-               sh 'terraform plan -destroy'
-         }
-        }*/
     }
 }
